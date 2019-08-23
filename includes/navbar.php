@@ -36,10 +36,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="membros.php">Membros</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" href="login/index.php">Administração</a>
                     </li>
 
@@ -53,11 +49,16 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navDrop">Redes Sociais</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Facebook</a>
-                            <a class="dropdown-item" href="#">Instagram</a>
-                            <a class="dropdown-item" href="#">Twitter</a>
-                            <a class="dropdown-item" href="#">YouTube</a>
-                            <a class="dropdown-item" href="#">Whatsapp</a>
+                            <a class="dropdown-item" target="_blank" href="https://pt-br.facebook.com/">
+                                <img src="../img/iconfinder_Facebook_1298738.png" alt="Facebook"> Facebook</a>
+                            <a class="dropdown-item" target="_blank" href="https://www.instagram.com/">
+                                <img src="../img/iconfinder_Instagram_1298747.png" alt="Instagram"> Instagram</a>
+                            <a class="dropdown-item" target="_blank" href="https://twitter.com/">
+                                <img src="../img/iconfinder_twitter_294655.png" alt="Twitter"> Twitter</a>
+                            <a class="dropdown-item" target="_blank" href="https://www.youtube.com/">
+                                <img src="../img/iconfinder_youtube_317714.png" alt="YouTube"> YouTube</a>
+                            <a class="dropdown-item" target="_blank" href="https://web.whatsapp.com/">
+                                <img src="../img/iconfinder_Whatsapp_3721678.png" alt="Whatsapp"> Whatsapp</a>
                         </div>
                     </li>
 
