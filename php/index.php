@@ -114,9 +114,31 @@ include '../includes/navbar.php';
             <hr>
         </div>
         <div class="col-sm-4">
-            <h3 class="display-5 mb-3">Sobre Nós</h3>
+            <!-- <h3 class="display-5 mb-3">Sobre Nós</h3> -->
             <p>
-                Projeto em desenvolvimento!
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    Sobre Nós
+                </button>
+
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Sobre Nós</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Projeto em desenvolvimento!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </p>
         </div>
         <div class="col-sm-6">
