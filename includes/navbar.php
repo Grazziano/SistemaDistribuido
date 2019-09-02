@@ -40,7 +40,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contatos.html">Contatos</a>
+                        <a class="nav-link" href="contatos.php">Contatos</a>
                     </li>
 
                 </ul>

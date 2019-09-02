@@ -148,7 +148,7 @@ include '../includes/navbar.php';
                 <a href="#" class="list-group-item list-group-item-action">Imóveis</a>
                 <a href="#" class="list-group-item list-group-item-action">Informações</a>
                 <a href="#" class="list-group-item list-group-item-action">Administração</a>
-                <a href="#" class="list-group-item list-group-item-action">Contatos</a>
+                <a href="contatos.php" class="list-group-item list-group-item-action">Contatos</a>
             </div>
         </div>
 
