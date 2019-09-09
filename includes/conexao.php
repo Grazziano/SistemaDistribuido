@@ -1,14 +1,14 @@
 <?php
 
-function conectar(){
-	$servidor = "localhost";
-	$porta = 5432;
+function conectar()
+{
 	$bancoDeDados = "sistemadistribuido";
-	$usuario = "postgres";
-	$senha = "arkham1988";
+	$servidor = "localhost";
+	$usuario = "root";
+	$senha = "";
 
-	$conexao = pg_connect("host=$servidor port=$porta dbname=$bancoDeDados " + "user=$usuario password=$senha");
-	if(!$conexao) {
+	$conexao = new mysqli($servidor, $senha, $usuario, $bancoDeDados);
+	if (!$conexao) {
 		die("Não foi possível se conectar ao banco de dados.");
 	}
 
