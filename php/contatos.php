@@ -11,23 +11,27 @@ include '../includes/navbar.php';
 
     <div class="row justify-content-center mb-5">
         <div class="col-sm-12 col-md-10 col-lg-8">
-            <form action="enviar.php">
+            <form action="enviar.php" method="post">
                 <div class="form-row">
 
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="nome" placeholder="Nome Completo">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo">
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="telefone" placeholder="Telefone">
+                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone">
                     </div>
 
                     <div class="form-group col-sm-12">
-                        <input type="email" class="form-control" id="email" placeholder="E-mail">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
                     </div>
 
                     <div class="form-group col-sm-12">
-                        <input type="text" class="form-control" id="mensagem" placeholder="Mensagem">
+                        <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto">
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <input type="text" class="form-control" id="mensagem" name="mensagem" placeholder="Mensagem">
                     </div>
 
                 </div>
