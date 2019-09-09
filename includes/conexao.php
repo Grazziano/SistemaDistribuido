@@ -2,12 +2,12 @@
 
 function conectar()
 {
-	$bancoDeDados = "sistemadistribuido";
+	$db = "sistemadistribuido";
 	$servidor = "localhost";
 	$usuario = "root";
 	$senha = "";
 
-	$conexao = new mysqli($servidor, $senha, $usuario, $bancoDeDados);
+	$conexao = new mysqli($servidor, $senha, $usuario, $db);
 	if (!$conexao) {
 		die("Não foi possível se conectar ao banco de dados.");
 	}
