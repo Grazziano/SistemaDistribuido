@@ -10,35 +10,30 @@ include '../../includes/conexao.php';
 if (isset($_POST['button'])) {
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-	echo "Email: " . $email . " - Senha: " . $senha;
 
-	$sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+	$sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha' ";
 
-	$query = mysqli_query($conexao, $sql);
-	if (mysqli_num_rows($query) > 0) {
-		echo "Login efetuado com sucesso!";
+	$result = mysqli_query($conexao, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+		echo '<meta http-equiv="refresh" content="0; url=membros.php">';
 	} else {
-		echo "Login ou senha incorreto";
+		echo "<script> alert('Login ou senha incorretos!'); </script>";
 	}
 }
 ?>
-
 <div class="container">
 	<div class="card card-container">
+
 		<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 		<p id="profile-name" class="profile-name-card"></p>
 		<form class="form-signin" name="form" method="post" action="" enctype="multipart/form-data">
 			<span id="reauth-email" class="reauth-email"></span>
-			<input type="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
-			<input type="password" id="senha" class="form-control" placeholder="Senha" required>
-			<!-- <div id="remember" class="checkbox">
-				<label>
-					<input type="checkbox" value="remember-me"> Remember me
-				</label>
-			</div> -->
-			<button class="btn btn-lg btn-primary btn-block btn-signin" name="button" type="submit">Entrar</button>
-		</form>
+			<input type="email" name="email" class="form-control" placeholder="Email" required autofocus>
+			<input type="password" name="senha" class="form-control" placeholder="Senha" required>
 
+			<button class="btn btn-lg btn-primary btn-block btn-signin" name="button" type="submit">Login</button>
+		</form>
 		<a href="#" class="forgot-password">
 			Forgot the password?
 		</a>

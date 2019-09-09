@@ -1,18 +1,13 @@
 <?php
-
 function conectar()
 {
-	$db = "sistemadistribuido";
 	$servidor = "localhost";
 	$usuario = "root";
 	$senha = "";
+	$db = "sistemadistribuido";
 
-	$conexao = new mysqli($servidor, $senha, $usuario, $db);
-	if (!$conexao) {
-		die("Não foi possível se conectar ao banco de dados.");
-	}
-
-	return $conexao;
+	$con = new mysqli($servidor, $usuario, $senha, $db);
+	return $con;
 }
 
 $conexao = conectar();
