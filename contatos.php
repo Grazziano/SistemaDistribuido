@@ -5,7 +5,7 @@ include 'includes/navbar.php';
 <div class="container">
     <div class="row">
         <div class="col-12 text-center my-5">
-            <h1 class="display-4">Entre em contato conosco!</h1>
+            <h1 class="display-4"><i class="fas fa-envelope-open-text"></i> Entre em contato conosco!</h1>
         </div>
     </div>
 
@@ -38,9 +38,9 @@ include 'includes/navbar.php';
 
                 <div class="form-row text-center">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success btn-lg mr-2"><img src="../img/iconfinder_mail_1055030.png" alt=""> Enviar</button>
+                        <button type="submit" class="btn btn-success btn-lg mr-2"><i class="fas fa-paper-plane"></i> Enviar</button>
                         <a class="btn btn-secondary btn-lg ml-2" tabindex="0" role="button" data-toggle="popover" data-placement="right" data-trigger="focus" title="Ajuda com o Formulário" data-content="Preencha o formulário para receber em seu email...">
-                            <img src="../img/iconfinder_sign-info_299086.png" alt=""> Ajuda</a>
+                            <i class="fas fa-info-circle"></i> Ajuda</a>
                     </div>
                 </div>
 

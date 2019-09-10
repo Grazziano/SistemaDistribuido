@@ -64,7 +64,7 @@ include 'includes/navbar.php';
     <div class="row">
         <div class="col-12 text-center my-5">
             <h1 class="display-3">
-                <i class="fas fa-church"></i>
+                <i class="fas fa-door-open"></i>
                 Bem Vindos!!
             </h1>
             <p>Seja bem vindo a nosso site, aqui você terá informações sobre nossos imóveis disponiveis!</p>
@@ -117,7 +117,7 @@ include 'includes/navbar.php';
             <!-- <h3 class="display-5 mb-3">Sobre Nós</h3> -->
             <p>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                    Sobre Nós
+                    Sobre Nós <i class="far fa-address-card"></i>
                 </button>
 
                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -144,11 +144,11 @@ include 'includes/navbar.php';
         <div class="col-sm-6">
             <h3 class="display-5 mb-3">Links Principais</h3>
             <div class="list-group">
-                <a href="index.php" class="list-group-item list-group-item-action">Home</a>
-                <a href="#" class="list-group-item list-group-item-action">Imóveis</a>
-                <a href="#" class="list-group-item list-group-item-action">Informações</a>
-                <a href="#" class="list-group-item list-group-item-action">Administração</a>
-                <a href="contatos.php" class="list-group-item list-group-item-action">Contatos</a>
+                <a href="index.php" class="list-group-item list-group-item-action"><i class="fas fa-map-signs"></i> Home</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-home"></i> Imóveis</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-info-circle"></i> Informações</a>
+                <a href="login/index.php" class="list-group-item list-group-item-action"><i class="fas fa-user-cog"></i> Administração</a>
+                <a href="contatos.php" class="list-group-item list-group-item-action"><i class="fas fa-paper-plane"></i> Contatos</a>
             </div>
         </div>
 
@@ -156,19 +156,19 @@ include 'includes/navbar.php';
             <h3 class="display-5 mb-3">Social</h3>
             <div class="btn-group-vertical" role="group">
                 <a href="https://pt-br.facebook.com/" class="btn btn-light" target="_blank">
-                    <h5 class="mb-2"><img src="img/iconfinder_Facebook_1298738.png" alt="Facebook"> Facebook &nbsp</h5>
+                    <h5 class="mb-2"><i class="fab fa-facebook-square"></i> Facebook &nbsp</h5>
                 </a>
                 <a href="https://www.instagram.com/" class="btn btn-light" target="_blank">
-                    <h5 class="mb-2"><img src="img/iconfinder_Instagram_1298747.png" alt="Instagram"> Instagram &nbsp</h5>
+                    <h5 class="mb-2"><i class="fab fa-instagram"></i> Instagram &nbsp</h5>
                 </a>
                 <a href="https://twitter.com/" class="btn btn-light" target="_blank">
-                    <h5 class="mb-2"><img src="img/iconfinder_twitter_294655.png" alt="Twitter"> Twitter &nbsp</h5>
+                    <h5 class="mb-2"><i class="fab fa-twitter"></i> Twitter &nbsp</h5>
                 </a>
                 <a href="https://www.youtube.com/" class="btn btn-light" target="_blank">
-                    <h5 class="mb-2"><img src="img/iconfinder_youtube_317714.png" alt="YouTube"> YouTube &nbsp</h5>
+                    <h5 class="mb-2"><i class="fab fa-youtube"></i> YouTube &nbsp</h5>
                 </a>
                 <a href="https://web.whatsapp.com/" class="btn btn-light" target="_blank" alt="31 97527-5084" title="31 97527-5084">
-                    <h5 class="mb-2"><img src="img/iconfinder_Whatsapp_3721678.png" alt="Whatsapp"> Whatsapp &nbsp</h5>
+                    <h5 class="mb-2"><i class="fab fa-whatsapp"></i> Whatsapp &nbsp</h5>
                 </a>
 
             </div>
