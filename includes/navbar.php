@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Imóveis Sweet Home</title>
-    <link rel="icon" type="imagem/png" href="../img/iconfinder_house-05_2140006.png">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="icon" type="imagem/png" href="img/iconfinder_house-05_2140006.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -50,15 +50,15 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navDrop">Redes Sociais</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" target="_blank" href="https://pt-br.facebook.com/">
-                                <img src="../img/iconfinder_Facebook_1298738.png" alt="Facebook"> Facebook</a>
+                                <img src="img/iconfinder_Facebook_1298738.png" alt="Facebook"> Facebook</a>
                             <a class="dropdown-item" target="_blank" href="https://www.instagram.com/">
-                                <img src="../img/iconfinder_Instagram_1298747.png" alt="Instagram"> Instagram</a>
+                                <img src="img/iconfinder_Instagram_1298747.png" alt="Instagram"> Instagram</a>
                             <a class="dropdown-item" target="_blank" href="https://twitter.com/">
-                                <img src="../img/iconfinder_twitter_294655.png" alt="Twitter"> Twitter</a>
+                                <img src="img/iconfinder_twitter_294655.png" alt="Twitter"> Twitter</a>
                             <a class="dropdown-item" target="_blank" href="https://www.youtube.com/">
-                                <img src="../img/iconfinder_youtube_317714.png" alt="YouTube"> YouTube</a>
+                                <img src="img/iconfinder_youtube_317714.png" alt="YouTube"> YouTube</a>
                             <a class="dropdown-item" target="_blank" href="https://web.whatsapp.com/">
-                                <img src="../img/iconfinder_Whatsapp_3721678.png" alt="Whatsapp"> Whatsapp</a>
+                                <img src="img/iconfinder_Whatsapp_3721678.png" alt="Whatsapp"> Whatsapp</a>
                         </div>
                     </li>
 

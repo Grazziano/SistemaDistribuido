@@ -1,5 +1,5 @@
 <?php
-include '../includes/navbar.php';
+include 'includes/navbar.php';
 ?>
 
 <div class="container">
@@ -50,4 +50,4 @@ include '../includes/navbar.php';
 </div>
 
 <?php
-include '../includes/footer.php';
+include 'includes/footer.php';
