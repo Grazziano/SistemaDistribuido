@@ -1,3 +1,6 @@
+<?php
+include '../includes/conexao.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,7 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Imóveis Sweet Home</title>
     <link rel="icon" type="imagem/png" href="img/iconfinder_house-05_2140006.png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/usuario.css">
     <!-- Fonts Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- Bootstrap -->
@@ -18,7 +23,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-15">
         <div class="container">
             <a href="../index.php" class="navbar-brand h1 mb-0"><i class="fas fa-home"></i> Imóveis Sweet Home</a>
             <button class="navbar-toggler" type="bottom" data-toggle="collapse" data-target="#navbarSite">
@@ -39,7 +44,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="login/index.php"><i class="fas fa-user-cog"></i> Administração</a>
+                        <a class="nav-link" href="index.php"><i class="fas fa-user-cog"></i> Administração</a>
                     </li>
 
                     <li class="nav-item">
@@ -74,54 +79,115 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-    <h2>Painel Administrativo</h2>
-
-
     <div id="box_usuarios">
         <br /><br />
-        <a class="a2" href="membros.php?pg=cadastra"><i class="far fa-address-card"></i> Cadastrar Membros</a>
-        <h1>Membros</h1>
+        <a class="a2" href="membros.php?pg=cadastra"><i class="far fa-address-card"></i> Cadastrar</a>
+        <h1>Clientes</h1>
 
-        <table width="900">
-            <tr>
-                <td><strong>Código:</strong></td>
-                <td><strong>Nome:</strong></td>
-                <td><strong>Telefone:</strong></td>
-                <td><strong>Status:</strong></td>
-                <td><strong>Imagem:</strong></td>
-                <td></td>
-            </tr>
+        <?php
+        $sql = "SELECT * FROM membros WHERE nome != ''";
+        $resultadp = mysqli_query($conexao, $sql);
 
-            <tr>
-                <td>
-                    <h3></h3>
-                </td>
-                <td>
-                    <h3></h3>
-                </td>
-                <td>
-                    <h3></h3>
-                </td>
+        if (mysqli_num_rows($resultadp) == '') {
+            echo "<h2>Não há clientes cadastrados!</h2>";
+        } else {
+            ?>
+            <table width="900">
+                <tr>
+                    <td><strong>Código:</strong></td>
+                    <td><strong>Nome:</strong></td>
+                    <td><strong>Telefone:</strong></td>
+                    <td><strong>Status:</strong></td>
+                    <td><strong>Imagem:</strong></td>
+                    <td></td>
+                </tr>
 
-                <td>
-                    <h3></h3>
-                </td>
-                <td>
-                    <h3></h3>
-                </td>
-                <td></td>
-                <td>
-                    <a class="a" href="usuarios.php?pg=todos&func=deleta&id="><i class="fas fa-trash-alt"></i>&nbsp;</a>
+                <tr>
+                    <td>
+                        <h3></h3>
+                    </td>
+                    <td>
+                        <h3></h3>
+                    </td>
+                    <td>
+                        <h3></h3>
+                    </td>
 
-                    <a class="a" href="usuarios.php?pg=todos&func=ativa&id="><i class="fas fa-check"></i>&nbsp;</a>
+                    <td>
+                        <h3></h3>
+                    </td>
+                    <td>
+                        <h3></h3>
+                    </td>
+                    <td></td>
+                    <td>
+                        <a class="a" href="usuarios.php?pg=todos&func=deleta&id="><i class="fas fa-trash-alt"></i>&nbsp;</a>
 
-                    <a class="a" href="usuarios.php?pg=todos&func=inativa&id="><i class="fas fa-user-minus"></i>&nbsp;</a>
+                        <a class="a" href="usuarios.php?pg=todos&func=ativa&id="><i class="fas fa-check"></i>&nbsp;</a>
 
-                    <a class="a" href="usuarios.php?pg=todos&func=edita&id="><i class="fas fa-edit"></i>&nbsp;</a>
-                </td>
-            </tr>
+                        <a class="a" href="usuarios.php?pg=todos&func=inativa&id="><i class="fas fa-user-minus"></i>&nbsp;</a>
 
-        </table>
+                        <a class="a" href="usuarios.php?pg=todos&func=edita&id="><i class="fas fa-edit"></i>&nbsp;</a>
+                    </td>
+                </tr>
+
+            </table>
+        <?php
+        }
+        ?>
+
+        <!-- Cadastrar clientes -->
+        <?php if (@$_GET['pg'] == 'cadastra') { ?>
+            <div id="cadastra_usuarios">
+                <h1>Cadastrar novo Cliente</h1>
+
+
+
+                <form name="form1" method="post" action="upload.php" enctype="multipart/form-data">
+                    <table width="900" border="0">
+                        <tr>
+                            <td>Nome:</td>
+                            <td>Telefone:</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <input type="text" name="nome" id="textfield1" required></td>
+                            <td>
+                                <input type="text" name="telefone" id="textfield2" required></td>
+
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                        </tr>
+                        <tr>
+                            <td><label for="select"></label>
+                                <select name="status" size="1" id="select">
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>Imagem</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type='file' name="arquivo" /></td>
+
+                        </tr>
+
+                        <td><input class="input" type="submit" name="button" id="button" value="Cadastrar"></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </form>
+                <br />
+            </div>
+
+        <?php } ?>
 
         <?php
         include '../includes/footer.php';

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Set-2019 às 21:54
+-- Generation Time: 16-Set-2019 às 20:35
 -- Versão do servidor: 10.1.39-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `sistemadistribuido`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `membros`
+--
+
+CREATE TABLE `membros` (
+  `codigo` int(11) NOT NULL,
+  `nome` varchar(200) NOT NULL,
+  `telefone` varchar(200) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `imagem` varchar(200) NOT NULL DEFAULT '00.jpg'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `membros`
+--
+
+INSERT INTO `membros` (`codigo`, `nome`, `telefone`, `status`, `imagem`) VALUES
+(7, 'Paula', '59871215', 'Ativo', '01.jpg'),
+(8, 'Marcia', '55566', 'Inativo', '03.jpg'),
+(46, 'Milena', '62655656', 'Ativo', '04.jpg'),
+(47, 'Bianca', '565455', 'Ativo', '02.jpg'),
+(48, 'Paulo', '5484845', 'Ativo', '05.jpg'),
+(49, 'Marcos', '54544545', 'Inativo', '00.jpg');
 
 -- --------------------------------------------------------
 
