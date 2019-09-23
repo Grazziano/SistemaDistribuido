@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Set-2019 às 20:35
+-- Generation Time: 23-Set-2019 às 23:06
 -- Versão do servidor: 10.1.39-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -33,7 +33,7 @@ CREATE TABLE `membros` (
   `nome` varchar(200) NOT NULL,
   `telefone` varchar(200) NOT NULL,
   `status` varchar(100) NOT NULL,
-  `imagem` varchar(200) NOT NULL DEFAULT '00.jpg'
+  `imagem` varchar(200) NOT NULL DEFAULT 'semimagem.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -46,7 +46,10 @@ INSERT INTO `membros` (`codigo`, `nome`, `telefone`, `status`, `imagem`) VALUES
 (46, 'Jill Valentine', '62655656', 'Ativo', '04.jpg'),
 (47, 'Leon S. Kennedy', '565455', 'Ativo', '03.jpg'),
 (48, 'Claire Redfield', '5484845', 'Ativo', '05.jpg'),
-(49, 'Albert Wesker', '54544545', 'Inativo', '00.jpg');
+(49, 'Albert Wesker', '54544545', 'Inativo', '00.jpg'),
+(0, 'Antonio Banderas', '555555555', 'Inativo', '06.jpg'),
+(0, 'Grazziano', '555555555', 'Ativo', '06.jpg'),
+(0, 'Teste', '555555555', 'Ativo', 'semimagem.jpg');
 
 -- --------------------------------------------------------
 
