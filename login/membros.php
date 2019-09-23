@@ -76,7 +76,6 @@ include '../includes/conexao.php';
         </div>
     </nav>
 
-
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <div id="box_usuarios">
@@ -86,13 +85,13 @@ include '../includes/conexao.php';
 
         <?php
         $sql = "SELECT * FROM membros WHERE nome != ''";
-        $resultadp = mysqli_query($conexao, $sql);
-
-        if (mysqli_num_rows($resultadp) == '') {
-            echo "<h2>Não há clientes cadastrados!</h2>";
+        $result = mysqli_query($conexao, $sql);
+        if (mysqli_num_rows($result) == '') {
+            echo "<h2>Não existem membros cadastrados!!</h2>";
         } else {
             ?>
-            <table width="900">
+
+            <table width="900" border="0">
                 <tr>
                     <td><strong>Código:</strong></td>
                     <td><strong>Nome:</strong></td>
@@ -102,39 +101,53 @@ include '../includes/conexao.php';
                     <td></td>
                 </tr>
 
-                <tr>
-                    <td>
-                        <h3></h3>
-                    </td>
-                    <td>
-                        <h3></h3>
-                    </td>
-                    <td>
-                        <h3></h3>
-                    </td>
+                <?php
+                    while ($res_1 = mysqli_fetch_array($result)) {
+                        $id = $res_1['codigo'];
+                        $nome = $res_1['nome'];
+                        $telefone = $res_1['telefone'];
+                        $status = $res_1['status'];
+                        $imagem = $res_1['imagem'];
 
-                    <td>
-                        <h3></h3>
-                    </td>
-                    <td>
-                        <h3></h3>
-                    </td>
-                    <td></td>
-                    <td>
-                        <a class="a" href="usuarios.php?pg=todos&func=deleta&id="><i class="fas fa-trash-alt"></i>&nbsp;</a>
+                        ?>
 
-                        <a class="a" href="usuarios.php?pg=todos&func=ativa&id="><i class="fas fa-check"></i>&nbsp;</a>
+                    <tr>
 
-                        <a class="a" href="usuarios.php?pg=todos&func=inativa&id="><i class="fas fa-user-minus"></i>&nbsp;</a>
+                        <td>
+                            <h3><?php echo $id; ?></h3>
+                        </td>
+                        <td>
+                            <h3><?php echo $nome; ?></h3>
+                        </td>
+                        <td>
+                            <h3><?php echo $telefone; ?></h3>
+                        </td>
+                        <td>
+                            <h3><?php echo $status; ?></h3>
+                        </td>
 
-                        <a class="a" href="usuarios.php?pg=todos&func=edita&id="><i class="fas fa-edit"></i>&nbsp;</a>
-                    </td>
-                </tr>
+                        <td><img src="imagens/<?php echo $imagem; ?>" width="50"></td>
+
+                        <td></td>
+                        <td>
+                            <a class="a" href="membros.php?pg=todos&func=deleta&id=<?php echo $id; ?>"><img title="Excluir Membro" src="img/deleta.jpg" width="18" height="18" border="0"></a>
+
+                            <?php if ($status == 'Inativo') { ?>
+                                <a class="a" href="membros.php?pg=todos&func=ativa&id=<?php echo $id; ?>"><img title="Ativar novamente" src="img/correto.jpg" width="20" height="20" border="0"></a>
+                            <?php } ?>
+
+                            <?php if ($status == 'Ativo') { ?>
+                                <a class="a" href="membros.php?pg=todos&func=inativa&id=<?php echo $id; ?>"><img title="Inativar Membro" src="img/ico_bloqueado.png" width="18" height="18" border="0"></a>
+                            <?php } ?>
+
+                            <a class="a" href="membros.php?pg=todos&func=edita&id=<?php echo $id; ?>"><img title="Editar Dados Cadastrais" src="img/ico-editar.png" width="18" height="18" border="0"></a>
+                        </td>
+                    </tr>
+
+                <?php } ?>
 
             </table>
-        <?php
-        }
-        ?>
+        <?php } ?>
 
         <!-- Cadastrar clientes -->
         <?php if (@$_GET['pg'] == 'cadastra') { ?>

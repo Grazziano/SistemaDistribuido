@@ -10,7 +10,12 @@
 
 <body>
     <?php
-    include_once("../conexao.php");
+    include_once("../includes/conexao.php");
+
+    $nome = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $status = $_POST['status'];
+
     $arquivo     = $_FILES['arquivo']['name'];
 
     //Pasta onde o arquivo vai ser salvo

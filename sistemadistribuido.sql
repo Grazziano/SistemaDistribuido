@@ -41,12 +41,12 @@ CREATE TABLE `membros` (
 --
 
 INSERT INTO `membros` (`codigo`, `nome`, `telefone`, `status`, `imagem`) VALUES
-(7, 'Paula', '59871215', 'Ativo', '01.jpg'),
-(8, 'Marcia', '55566', 'Inativo', '03.jpg'),
-(46, 'Milena', '62655656', 'Ativo', '04.jpg'),
-(47, 'Bianca', '565455', 'Ativo', '02.jpg'),
-(48, 'Paulo', '5484845', 'Ativo', '05.jpg'),
-(49, 'Marcos', '54544545', 'Inativo', '00.jpg');
+(7, 'Angelina Jolie', '59871215', 'Ativo', '01.jpg'),
+(8, 'Nathan Drake', '55566', 'Inativo', '02.jpg'),
+(46, 'Jill Valentine', '62655656', 'Ativo', '04.jpg'),
+(47, 'Leon S. Kennedy', '565455', 'Ativo', '03.jpg'),
+(48, 'Claire Redfield', '5484845', 'Ativo', '05.jpg'),
+(49, 'Albert Wesker', '54544545', 'Inativo', '00.jpg');
 
 -- --------------------------------------------------------
 
