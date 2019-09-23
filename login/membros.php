@@ -149,10 +149,13 @@ include '../includes/conexao.php';
             </table>
         <?php } ?>
 
+        <br>
+        <br>
+
         <!-- Cadastrar clientes -->
         <?php if (@$_GET['pg'] == 'cadastra') { ?>
             <div id="cadastra_usuarios">
-                <h1>Cadastrar novo Cliente</h1>
+                <h1>Cadastrar novo cliente</h1>
 
 
 
@@ -199,8 +202,9 @@ include '../includes/conexao.php';
                 </form>
                 <br />
             </div>
+    </div>
 
-        <?php } ?>
+<?php } ?>
+</body>
 
-        <?php
-        include '../includes/footer.php';
+</html>

@@ -15,11 +15,13 @@
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
     $status = $_POST['status'];
-
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
     $arquivo     = $_FILES['arquivo']['name'];
 
     //Pasta onde o arquivo vai ser salvo
-    $_UP['pasta'] = 'foto/';
+    $_UP['pasta'] = 'imagens/';
 
     //Tamanho máximo do arquivo em Bytes
     $_UP['tamanho'] = 1024 * 1024 * 100; //5mb
@@ -37,66 +39,96 @@
     $_UP['erros'][3] = 'O upload do arquivo foi feito parcialmente';
     $_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 
-    //Verifica se houve algum erro com o upload. Sem sim, exibe a mensagem do erro
-    if ($_FILES['arquivo']['error'] != 0) {
-        die("Não foi possivel fazer o upload, erro: <br />" . $_UP['erros'][$_FILES['arquivo']['error']]);
-        exit; //Para a execução do script
-    }
+    if ($_FILES['arquivo']['name'] == "") {
 
-    //Faz a verificação da extensao do arquivo
-    $extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
-    if (array_search($extensao, $_UP['extensoes']) === false) {
-        echo "
-					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL='>
+        if (isset($id)) {
+            $query = mysqli_query($conexao, "UPDATE membros SET nome = '$nome', telefone = '$telefone', status = '$status' WHERE codigo = '$id' ");
+            echo "
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
+						<script type=\"text/javascript\">
+							alert(\"Membro editado com Sucesso.\");
+						</script>
+					";
+        } else {
+            $query = mysqli_query($conexao, "INSERT INTO membros (nome, telefone, status) VALUES ('$nome', '$telefone', '$status')");
+            echo "
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
+						<script type=\"text/javascript\">
+							alert(\"Membro cadastrado com Sucesso.\");
+						</script>
+					";
+        }
+    } else {
+
+        //Verifica se houve algum erro com o upload. Sem sim, exibe a mensagem do erro
+        if ($_FILES['arquivo']['error'] != 0) {
+            die("Não foi possivel fazer o upload, erro: <br />" . $_UP['erros'][$_FILES['arquivo']['error']]);
+            exit; //Para a execução do script
+        }
+
+        //Faz a verificação da extensao do arquivo
+        $extensao = @strtolower(end(explode('.', $_FILES['arquivo']['name'])));
+        if (array_search($extensao, $_UP['extensoes']) === false) {
+            echo "
+					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
 					<script type=\"text/javascript\">
-						alert(\"A imagem não foi cadastrada extensão válida.\");
+						alert(\"A imagem não foi cadastrada, extensão inválida.\");
 					</script>
 				";
-    }
+        }
 
-    //Faz a verificação do tamanho do arquivo
-    else if ($_UP['tamanho'] < $_FILES['arquivo']['size']) {
-        echo "
-					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL='>
+        //Faz a verificação do tamanho do arquivo
+        else if ($_UP['tamanho'] < $_FILES['arquivo']['size']) {
+            echo "
+					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
 					<script type=\"text/javascript\">
 						alert(\"Arquivo muito grande.\");
 					</script>
 				";
-    }
-
-    //O arquivo passou em todas as verificações, tenta move-lo para a pasta foto
-    else {
-        //Primeiro verifica se deve trocar o nome do arquivo
-        if ($UP['renomeia'] == true) {
-            //Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .jpg
-            $nome_final = time() . '.jpg';
-        } else {
-            //mantem o nome original do arquivo
-            $nome_final = $_FILES['arquivo']['name'];
         }
-        //Verificar se é possivel mover o arquivo para a pasta escolhida
-        if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final)) {
-            //Upload efetuado com sucesso, exibe a mensagem
-            $query = mysqli_query($conn, "INSERT INTO tabela (
-					img) VALUES('$nome_final')");
-            echo "
-						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL='>
+
+        //O arquivo passou em todas as verificações, tenta move-lo para a pasta foto
+        else {
+            //Primeiro verifica se deve trocar o nome do arquivo
+            if (@$UP['renomeia'] == true) {
+                //Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .jpg
+                $nome_final = time() . '.jpg';
+            } else {
+                //mantem o nome original do arquivo
+                $nome_final = $_FILES['arquivo']['name'];
+            }
+            //Verificar se é possivel mover o arquivo para a pasta escolhida
+            if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final)) {
+                //Upload efetuado com sucesso, exibe a mensagem
+
+                if (isset($id)) {
+                    $query = mysqli_query($conexao, "UPDATE membros SET nome = '$nome', telefone = '$telefone', status = '$status', imagem = '$nome_final' WHERE codigo = '$id' ");
+                    echo "
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
 						<script type=\"text/javascript\">
-							alert(\"Imagem cadastrada com Sucesso.\");
+							alert(\"Membro editado com Sucesso.\");
 						</script>
 					";
-        } else {
-            //Upload não efetuado com sucesso, exibe a mensagem
-            echo "
-						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL='>
+                } else {
+                    $query = mysqli_query($conexao, "INSERT INTO membros (nome, telefone, status, imagem) VALUES ('$nome', '$telefone', '$status', '$nome_final')");
+                    echo "
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
+						<script type=\"text/javascript\">
+							alert(\"Membro cadastrado com Sucesso.\");
+						</script>
+					";
+                }
+            } else {
+                //Upload não efetuado com sucesso, exibe a mensagem
+                echo "
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
 						<script type=\"text/javascript\">
 							alert(\"Imagem não foi cadastrada com Sucesso.\");
 						</script>
 					";
+            }
         }
     }
-
-
     ?>
 </body>
 
