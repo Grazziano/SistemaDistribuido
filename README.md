@@ -1,36 +1,48 @@
-# Project Title
+# Imóveis
 
-One Paragraph of project description goes here
+O sistema de revenda de casas permitirá ao usuário se cadastrar no site, cadastrar e consultar os imóveis, enviar e-mails para os donos dos imóveis.
+O sistema será entregue em duas etapas, a parte web será na linguagem PHP, e a complementar em Java.
 
-## Getting Started
+## Começando
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Estas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em um sistema ativo.
 
-### Prerequisites
+### Requisitos
 
-What things you need to install the software and how to install them
+O que você precisa para instalar o software e como instalá-lo.
 
 ```
-Give examples
+Xampp
+```
+```
+Git
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Para clonar o repositório siga os exemplos passo a passo que mostram como obter um ambiente de desenvolvimento em execução
 
-Say what the step will be
+Clone o projeto dentro do diretório C:\xampp\htdocs com o comando abaixo
+
+Com ssh
+```
+git@gitlab.com:grazzianofagundes/sistemadistribuido.git
+```
+Com https
+```
+https://gitlab.com/grazzianofagundes/sistemadistribuido.git
+```
+
+Abra o console do xampp e inicie o apache e o MySQL, depois acesse o PHP My Admin no link abaixo.
+Atenção: Se o xampp não tiver sido iniciado, não será possível acessar o banco.
 
 ```
-Give the example
+http://localhost/phpmyadmin/
 ```
 
-And repeat
+Crie um novo banco com o nome "sistemadistribuido" utf-8 general ci
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+<!-- Termine com um exemplo de como retirar alguns dados do sistema ou usá-los para uma pequena demonstração
 
 ## Running the tests
 
@@ -54,34 +66,34 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live system -->
 
-## Built With
+## Construído com
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [PHP](https://www.php.net/manual/pt_BR/intro-whatis.php) - Linguagem Utilizada
+* [MySQL](https://www.mysql.com/) - Banco de Dados
+* [Bootstrap](https://getbootstrap.com/) - Framework de código aberto para desenvolvimento de componentes de intergace e front end
 
-## Contributing
+<!-- ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).  -->
 
-## Authors
+## Autores
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Grazziano Fagundes** - *Desenvolvedor* - [GitHub](https://github.com/grazziano)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+<!-- See also the list of [contributors](https://github.com/grazziano) who participated in this project. -->
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Este projeto está licenciado sob a licença MIT - Veja o [LICENSE.md](https://opensource.org/licenses/MIT)
 
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * Hat tip to anyone whose code was used
 * Inspiration
-* etc
+* etc -->
