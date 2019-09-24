@@ -12,10 +12,10 @@ Estas instruções fornecerão uma cópia do projeto em execução na sua máqui
 O que você precisa para instalar o software e como instalá-lo.
 
 ```
-Xampp
+[Xampp](https://www.apachefriends.org/pt_br/index.html)
 ```
 ```
-Git
+[Git](https://git-scm.com/downloads)
 ```
 
 ### Installing
