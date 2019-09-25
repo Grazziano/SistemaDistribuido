@@ -177,6 +177,7 @@ include '../includes/conexao.php';
                         <tr>
                             <td><label for="select"></label>
                                 <select name="status" size="1" id="select">
+                                    <option value=""></option>
                                     <option value="Ativo">Ativo</option>
                                     <option value="Inativo">Inativo</option>
                                 </select></td>
@@ -214,57 +215,65 @@ include '../includes/conexao.php';
         <?php
             $id = $_GET['id'];
             $sql = "SELECT * FROM membros WHERE codigo = '$id'";
-            echo $sql;
-            ?>
-        <form name="form1" method="post" action="upload.php" enctype="multipart/form-data">
-            <table width="900" border="0">
-                <tr>
-                    <td>Nome:</td>
-                    <td>Telefone:</td>
-                </tr>
-                <tr>
+            // echo $sql;
+            $consulta = mysqli_query($conexao, $sql);
 
-                    <td>
-                        <input type="text" name="nome" id="textfield1" required></td>
-                    <td>
-                        <input type="text" name="telefone" id="textfield2" required></td>
+            while ($res_1 = mysqli_fetch_array($consulta)) {
 
-                </tr>
-                <tr>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td><label for="select"></label>
-                        <select name="status" size="1" id="select">
-                            <option value="Ativo">Ativo</option>
-                            <option value="Inativo">Inativo</option>
-                        </select></td>
 
-                </tr>
+                ?>
+            <form name="form1" method="post" action="upload.php" enctype="multipart/form-data">
+                <table width="900" border="0">
+                    <tr>
+                        <td>Nome:</td>
+                        <td>Telefone:</td>
+                    </tr>
+                    <tr>
 
-                <tr>
-                    <td>Imagem</td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type='file' name="arquivo" />
-                    </td>
+                        <td>
+                            <input type="text" name="nome" value="<?php echo $res_1['nome']; ?>" id="textfield1" required></td>
+                        <td>
+                            <input type="text" name="telefone" value="<?php echo $res_1['telefone']; ?>" id="textfield2" required></td>
 
-                </tr>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                    </tr>
+                    <tr>
+                        <td><label for="select"></label>
+                            <select name="status" size="1" id="select">
+                                <option value="<?php echo $res_1['status']; ?>"><?php echo $res_1['status']; ?></option>
+                                <option value=""></option>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
 
-                <td><input class="input" type="submit" name="button" id="button" value="Cadastrar"></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                </tr>
-            </table>
-        </form>
-        <br />
+                            </select></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Imagem</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type='file' name="arquivo" />
+                        </td>
+
+                    </tr>
+
+                    <td><input class="input" type="submit" name="button" id="button" value="Cadastrar"></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </form>
+            <br />
     </div>
     </div>
-
-
-
-<?php } ?>
+<?php
+    }
+}
+?>
 
 </body>
 
