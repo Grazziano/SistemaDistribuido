@@ -157,8 +157,6 @@ include '../includes/conexao.php';
             <div id="cadastra_usuarios">
                 <h1>Cadastrar novo cliente</h1>
 
-
-
                 <form name="form1" method="post" action="upload.php" enctype="multipart/form-data">
                     <table width="900" border="0">
                         <tr>
@@ -205,7 +203,69 @@ include '../includes/conexao.php';
             </div>
     </div>
 
+
+
 <?php } ?>
+
+<!-- Editar clientes -->
+<?php if (@$_GET['func'] == 'edita') { ?>
+    <div id="cadastra_usuarios">
+        <h1>Editar cliente</h1>
+        <?php
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM membros WHERE codigo = '$id'";
+            echo $sql;
+            ?>
+        <form name="form1" method="post" action="upload.php" enctype="multipart/form-data">
+            <table width="900" border="0">
+                <tr>
+                    <td>Nome:</td>
+                    <td>Telefone:</td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <input type="text" name="nome" id="textfield1" required></td>
+                    <td>
+                        <input type="text" name="telefone" id="textfield2" required></td>
+
+                </tr>
+                <tr>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td><label for="select"></label>
+                        <select name="status" size="1" id="select">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select></td>
+
+                </tr>
+
+                <tr>
+                    <td>Imagem</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type='file' name="arquivo" />
+                    </td>
+
+                </tr>
+
+                <td><input class="input" type="submit" name="button" id="button" value="Cadastrar"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                </tr>
+            </table>
+        </form>
+        <br />
+    </div>
+    </div>
+
+
+
+<?php } ?>
+
 </body>
 
 </html>
