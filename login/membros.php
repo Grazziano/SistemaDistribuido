@@ -277,6 +277,35 @@ include '../includes/conexao.php';
     }
 }
 ?>
+<!-- Deletar Clientes -->
+<?php if (@$_GET['func'] == 'deleta') {
+
+    $id = $_GET['id'];
+
+    $sql = "DELETE FROM membros WHERE codigo = '$id'";
+    mysqli_query($conexao, $sql);
+    echo "<script language='javascript'>window.location='membros.php';</script>";
+} ?>
+
+
+
+<!-- Ativar cliente -->
+<?php if (@$_GET['func'] == 'ativa') {
+    $id = $_GET['id'];
+    $sql = "UPDATE membros SET status = 'Ativo' WHERE codigo = '$id'";
+    mysqli_query($conexao, $sql);
+
+    echo "<script language='javascript'>window.location='membros.php';</script>";
+} ?>
+
+<!-- Inativar Cliente -->
+<?php if (@$_GET['func'] == 'inativa') {
+    $id = $_GET['id'];
+    $sql = "UPDATE membros SET status = 'Inativo' WHERE codigo = '$id'";
+    mysqli_query($conexao, $sql);
+
+    echo "<script language='javascript'>window.location='membros.php';</script>";
+} ?>
 
 </body>
 
