@@ -190,7 +190,8 @@ include '../includes/conexao.php';
                         </tr>
                         <tr>
                             <td>
-                                <input type='file' name="arquivo" /></td>
+                                <input type='file' name="arquivo" />
+                            </td>
 
                         </tr>
 
