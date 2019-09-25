@@ -18,7 +18,7 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
     }
-    $arquivo     = $_FILES['arquivo']['name'];
+    $arquivo = $_FILES['arquivo']['name'];
 
     //Pasta onde o arquivo vai ser salvo
     $_UP['pasta'] = 'imagens/';
@@ -102,6 +102,7 @@
                 //Upload efetuado com sucesso, exibe a mensagem
 
                 if (isset($id)) {
+                    // echo "Existe id";
                     $query = mysqli_query($conexao, "UPDATE membros SET nome = '$nome', telefone = '$telefone', status = '$status', imagem = '$nome_final' WHERE codigo = '$id' ");
                     echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
@@ -110,6 +111,7 @@
 						</script>
 					";
                 } else {
+                    // echo "Não existe id";
                     $query = mysqli_query($conexao, "INSERT INTO membros (nome, telefone, status, imagem) VALUES ('$nome', '$telefone', '$status', '$nome_final')");
                     echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>

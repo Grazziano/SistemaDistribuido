@@ -130,17 +130,17 @@ include '../includes/conexao.php';
 
                         <td></td>
                         <td>
-                            <a class="a" href="membros.php?pg=todos&func=deleta&id=<?php echo $id; ?>"><img title="Excluir Membro" src="img/deleta.jpg" width="18" height="18" border="0"></a>
+                            <a type="button" class="a btn btn-danger btn-sm" href="membros.php?pg=todos&func=deleta&id=<?php echo $id; ?>"><i class="fas fa-trash-alt"></i></a>
 
                             <?php if ($status == 'Inativo') { ?>
-                                <a class="a" href="membros.php?pg=todos&func=ativa&id=<?php echo $id; ?>"><img title="Ativar novamente" src="img/correto.jpg" width="20" height="20" border="0"></a>
+                                <a type="button" class="a btn btn-success btn-sm" href="membros.php?pg=todos&func=ativa&id=<?php echo $id; ?>"><i class="fas fa-check-circle"></i></a>
                             <?php } ?>
 
                             <?php if ($status == 'Ativo') { ?>
-                                <a class="a" href="membros.php?pg=todos&func=inativa&id=<?php echo $id; ?>"><img title="Inativar Membro" src="img/ico_bloqueado.png" width="18" height="18" border="0"></a>
+                                <a type="button" class="a btn btn-info btn-sm" href="membros.php?pg=todos&func=inativa&id=<?php echo $id; ?>"><i class="fas fa-times-circle"></i></a>
                             <?php } ?>
 
-                            <a class="a" href="membros.php?pg=todos&func=edita&id=<?php echo $id; ?>"><img title="Editar Dados Cadastrais" src="img/ico-editar.png" width="18" height="18" border="0"></a>
+                            <a type="button" class="a btn btn-warning btn-sm" href="membros.php?pg=todos&func=edita&id=<?php echo $id; ?>"><i class="fas fa-edit"></i></a>
                         </td>
                     </tr>
 
@@ -222,7 +222,7 @@ include '../includes/conexao.php';
 
 
                 ?>
-            <form name="form1" method="post" action="upload.php" enctype="multipart/form-data">
+            <form name="form1" method="post" action="upload.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
                 <table width="900" border="0">
                     <tr>
                         <td>Nome:</td>
@@ -256,12 +256,15 @@ include '../includes/conexao.php';
                     </tr>
                     <tr>
                         <td>
-                            <input type='file' name="arquivo" />
+                            <input type='file' value="<?php echo $res_1['imagem']; ?>" name="arquivo" />
+                        </td>
+                        <td>
+                            <img src="imagens/<?php echo $res_1['imagem']; ?>" width="100" alt="<?php echo $res_1['nome']; ?>">
                         </td>
 
                     </tr>
 
-                    <td><input class="input" type="submit" name="button" id="button" value="Cadastrar"></td>
+                    <td><input class="input" type="submit" name="button" id="button" value="Editar"></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     </tr>
