@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Imóveis</a>
+                        <a class="nav-link" href="imoveis.php"><i class="fas fa-home"></i> Imóveis</a>
                     </li>
 
                     <li class="nav-item">

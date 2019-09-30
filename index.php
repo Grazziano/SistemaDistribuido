@@ -145,7 +145,7 @@ include 'includes/navbar.php';
             <h3 class="display-5 mb-3">Links Principais</h3>
             <div class="list-group">
                 <a href="index.php" class="list-group-item list-group-item-action"><i class="fas fa-map-signs"></i> Home</a>
-                <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-home"></i> Imóveis</a>
+                <a href="imoveis.php" class="list-group-item list-group-item-action"><i class="fas fa-home"></i> Imóveis</a>
                 <a href="clientes.php" class="list-group-item list-group-item-action"><i class="fas fa-users"></i> Clientes</a>
                 <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-info-circle"></i> Informações</a>
                 <a href="login/index.php" class="list-group-item list-group-item-action"><i class="fas fa-user-cog"></i> Administração</a>
