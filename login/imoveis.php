@@ -93,7 +93,7 @@ include '../includes/conexao.php';
             ?>
 
             <div class="container">
-                <h1 class="page-header">Tabelas com Bootstrap</h1>
+                <h1 class="page-header">Lista de Casas Disponíveis</h1>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
@@ -143,9 +143,6 @@ include '../includes/conexao.php';
         <?php
         }
         ?>
-        <div class="container">
-            &copy; 2016 - <a href="http://webdevacademy.com.br" target="_blank">Web Dev Academy</a>
-        </div>
     </div>
 </body>
 
