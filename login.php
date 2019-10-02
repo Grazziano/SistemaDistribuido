@@ -9,8 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/formulario.css">
-    <link rel="stylesheet" href="../css/framework.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/framework.css">
 </head>
 
 <body>
@@ -26,6 +26,27 @@
                 <br><br>
                 <button class="btn btn-success" name="entrar" value="entrar">Entrar</button>
             </form>
+            <?php
+            if (isset($_POST['entrar'])) {
+                $email = filter_input(INPUT_POST, 'email');
+                $senha = strip_tags(filter_input(INPUT_POST, 'senha'));
+
+                if (empty($email) || empty($senha)) {
+                    echo '<p class="alert-error color-white">Preencha todos os campos!</p>';
+                } else {
+                    $consulta = $pdo->prepare("SELECT email, senha, nivel, status, nome FROM " . DB_USUARIOS . " WHERE status = 1 AND email = :email AND senha = :pass");
+                    $consulta->bindValue(':email', $email);
+                    $consulta->bindValue(':pass', $senha);
+                    $consulta->execute();
+
+                    if (isset($consulta)) {
+                        echo '<script>window.location="admin/dashboard.php"</script>';
+                    } else {
+                        echo '<p class="alert-error color-white">Dados informados não conferem!</p>';
+                    }
+                }
+            }
+            ?>
         </article>
     </section>
 
