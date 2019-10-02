@@ -1,0 +1,43 @@
+section {
+  width: 100%;
+  height: auto;
+}
+
+article {
+  width: 60%;
+  height: auto;
+  margin: 6% 20%;
+  padding: 4% 0%;
+}
+
+/* form {
+  margin-top: 15%;
+} */
+
+input[type="text"] {
+  width: 60%;
+  margin: 0% 20%;
+  padding: 8px;
+}
+
+input[type="email"] {
+  width: 60%;
+  margin: 0% 20%;
+  padding: 8px;
+}
+
+input[type="password"] {
+  width: 60%;
+  margin: 0% 20%;
+  padding: 8px;
+}
+
+label {
+  padding: 8px;
+  margin: 0% 20%;
+}
+
+button {
+  margin: 0% 20%;
+  padding: 8px;
+}
