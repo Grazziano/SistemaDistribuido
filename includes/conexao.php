@@ -10,4 +10,6 @@ function conectar()
 	return $con;
 }
 
+$pdo = new PDO("mysql: host=localhost; dbname=sistemadistribuido", "root", "senac1988");
+
 $conexao = conectar();
