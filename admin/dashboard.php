@@ -1,3 +1,7 @@
+<?php
+include '../includes/conexao.php';
+session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -16,7 +20,7 @@
 <body>
     <section>
         <article class="bgcolor-white">
-            <h1 class="text-center font-text-hard-two color-dark">Seja bem vindo!</h1>
+            <h1 class="text-center font-text-hard-two color-dark">Seja bem vindo <?php $_SESSION['usuario'] ?>!</h1>
         </article>
     </section>
 

@@ -1,3 +1,7 @@
+<?php
+include 'includes/conexao.php';
+session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -22,7 +26,7 @@
                 <input class="font-text-light-extra text-left color-dark bgcolor-white-dark" type="email" name="email" placeholder="E-mail" require>
                 <br><br>
                 <label for="senha" class="font-text-light-extra text-left color-dark">Digite sua senha</label><br>
-                <input class="font-text-light-extra text-left color-dark bgcolor-white-dark" type="password" name="nome" placeholder="Senha" require>
+                <input class="font-text-light-extra text-left color-dark bgcolor-white-dark" type="password" name="senha" placeholder="Senha" require>
                 <br><br>
                 <button class="btn btn-success" name="entrar" value="entrar">Entrar</button>
             </form>
@@ -34,15 +38,25 @@
                 if (empty($email) || empty($senha)) {
                     echo '<p class="alert-error color-white">Preencha todos os campos!</p>';
                 } else {
-                    $consulta = $pdo->prepare("SELECT email, senha, nivel, status, nome FROM " . DB_USUARIOS . " WHERE status = 1 AND email = :email AND senha = :pass");
+                    $consulta = $pdo->prepare("SELECT email, senha, nivel, status, nome FROM usuarios WHERE status = 1 AND email = :email AND senha = :pass LIMIT 1");
                     $consulta->bindValue(':email', $email);
                     $consulta->bindValue(':pass', $senha);
                     $consulta->execute();
+                    echo $query->consulta;
 
-                    if (isset($consulta)) {
+                    foreach ($consulta as $mostra) {
+                        $nivel = strip_tags($mostra['nivel']);
+                        $nome = strip_tags($mostra['nome']);
+                    }
+
+                    if ($linhas == 1) {
+                        $_SESSION['nivel'] = $nivel;
+                        $_SESSION['nome'] = $nome;
+                        $_SESSION['logado'] = 1;
                         echo '<script>window.location="admin/dashboard.php"</script>';
                     } else {
                         echo '<p class="alert-error color-white">Dados informados não conferem!</p>';
+                        session_destroy();
                     }
                 }
             }
