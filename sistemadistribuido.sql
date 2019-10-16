@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Out-2019 às 03:09
+-- Tempo de geração: 16-Out-2019 às 04:20
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.9
 
@@ -47,8 +47,8 @@ CREATE TABLE `imoveis` (
 INSERT INTO `imoveis` (`id`, `endereco`, `numero`, `bairro`, `cidade`, `descricao`, `status`, `preco`, `imagem`) VALUES
 (1, 'Rua Dr. Albuquerque de Barros', '530', 'Centro', 'Pelotas', 'Imóvel com dois quartos, cozinha, banheiro, sala e jardim', 'Venda', 10000, 'imagens/casa01.jpg'),
 (2, 'Av. Bento Gonçalves', '1500', 'Centro', 'Pelotas', 'Imóvel com dois quartos, cozinha, banheiro, sala e jardim', 'Aluguel', 500, 'imagens/casa02.jpg'),
-(3, 'Av. Duque de Caxias', '2000', 'Fragata', 'Pelotas', 'Imóvel com dois quartos, cozinha, banheiro, sala e jardim', 'Venda', 10000, 'imagens/casa03.jpg'),
-(4, 'Av. Lopoldo Broad', '1200', 'Três Vendas', 'Pelotas', 'Imóvel com dois quartos, cozinha, banheiro, sala e jardim', 'Aluguel', 5000, 'imagens/casa04.jpg');
+(3, 'Rua Dr. Albuquerque de Barros', '530', 'Centro', 'Pelotas', 'Imóvel com dois quartos, cozinha, banheiro, sala e jardim', 'Venda', 10000, 'imagens/casa01.jpg'),
+(4, 'Av. Bento Gonçalves', '1500', 'Centro', 'Pelotas', 'Imóvel com dois quartos, cozinha, banheiro, sala e jardim', 'Aluguel', 5000, 'imagens/casa02.jpg');
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,11 @@ CREATE TABLE `membros` (
   `nome` varchar(200) NOT NULL,
   `telefone` varchar(200) NOT NULL,
   `status` varchar(100) NOT NULL,
-  `imagem` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `endereco` varchar(200) NOT NULL,
+  `numero` varchar(10) NOT NULL,
+  `cep` varchar(10) NOT NULL,
+  `imagem` varchar(200) DEFAULT NULL,
   `imagem_arquivo` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -69,17 +73,17 @@ CREATE TABLE `membros` (
 -- Extraindo dados da tabela `membros`
 --
 
-INSERT INTO `membros` (`codigo`, `nome`, `telefone`, `status`, `imagem`, `imagem_arquivo`) VALUES
-(1, 'Angelina Jolie', '59871215', 'Ativo', '01.jpg', ''),
-(2, 'Nathan Drake', '55566', 'Inativo', '02.jpg', ''),
-(3, 'Jill Valentine', '62655656', 'Ativo', '04.jpg', ''),
-(4, 'Leon S. Kennedy', '565455', 'Ativo', '03.jpg', ''),
-(5, 'Claire Redfield', '5484845', 'Ativo', '05.jpg', ''),
-(6, 'Albert Wesker', '54544545', 'Inativo', '00.jpg', ''),
-(7, 'Antonio Banderas', '555555555', 'Inativo', '06.jpg', ''),
-(8, 'Grazziano', '555555555', 'Ativo', 'kratos.pnh.jpg', ''),
-(10, 'Lara Croft', '1212121212', 'Ativo', 'lara.jpg', ''),
-(12, 'Goku', '4545454545', 'Ativo', 'goku.jpg', '');
+INSERT INTO `membros` (`codigo`, `nome`, `telefone`, `status`, `email`, `endereco`, `numero`, `cep`, `imagem`, `imagem_arquivo`) VALUES
+(1, 'Angelina Jolie', '59871215', 'Ativo', 'angelina@gmail.com', 'Rua XXX', '500', '96000000', '01.jpg', ''),
+(2, 'Nathan Drake', '55566', 'Inativo', 'uncharted@mail.com', 'Rua YYY', '300', '96000000', '02.jpg', ''),
+(3, 'Jill Valentine', '62655656', 'Ativo', 'resident@mail.com', 'Rua XXX', '530', '96000000', '04.jpg', ''),
+(4, 'Leon S. Kennedy', '565455', 'Ativo', 'resident@mail.com', 'Rua fsgasfgafs', '530', '96000000', '03.jpg', ''),
+(5, 'Claire Redfield', '5484845', 'Ativo', 'resident@mail.com', 'Rua XXX', '200', '96000000', '05.jpg', ''),
+(6, 'Albert Wesker', '54544545', 'Inativo', 'resident@mail.com', 'Rua XXX', '250', '96000000', '00.jpg', ''),
+(7, 'Antonio Banderas', '555555555', 'Inativo', 'antonio@mail.com', 'Av Bento Gonçalves', '1500', '96000000', '06.jpg', ''),
+(8, 'Grazziano', '555555555', 'Ativo', 'grazzianofagundes@gmail.com', 'Rua Doutor Albuquerque Barros', '530', '96015340', 'kratos.pnh.jpg', ''),
+(9, 'Lara Croft', '1212121212', 'Ativo', 'tombraider@mail.com', 'Rua Doutor Albuquerque Barros', '530', '96000000', 'lara.jpg', ''),
+(10, 'Goku', '4545454545', 'Ativo', 'dbz@mail.com', 'Rua XXX', '780', '96000000', 'goku.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -136,7 +140,7 @@ ALTER TABLE `imoveis`
 -- AUTO_INCREMENT de tabela `membros`
 --
 ALTER TABLE `membros`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

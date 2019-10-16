@@ -112,7 +112,7 @@ include '../includes/conexao.php';
                         $telefone = $res_1['telefone'];
                         $status = $res_1['status'];
                         $imagem = $res_1['imagem'];
-
+                        $binary = $res_1['imagem_arquivo'];
                         ?>
 
                     <tr>
@@ -121,7 +121,7 @@ include '../includes/conexao.php';
                             <h3><?php echo $id; ?></h3>
                         </td>
                         <td>
-                            <h3><?php echo $nome; ?></h3>
+                            <h3><?php echo utf8_encode($nome); ?></h3>
                         </td>
                         <td>
                             <h3><?php echo $telefone; ?></h3>
@@ -130,7 +130,12 @@ include '../includes/conexao.php';
                             <h3><?php echo $status; ?></h3>
                         </td>
 
-                        <td><img src="imagens/<?php echo $imagem; ?>" width="50"></td>
+                        <?php if ($imagem) { ?>
+                            <td><img src="imagens/<?php echo $imagem; ?>" width="50"></td>
+                        <?php } else {  ?>
+                            <td><img src="data:image/jpeg;base64,<?= base64_encode($binary) ?>" width="50"></td>
+                        <?php } ?>
+
 
                         <td></td>
                         <td>
