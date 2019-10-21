@@ -1,4 +1,7 @@
 <?php
+/* BANCO DE DADOS LOCAL */
+
+
 function conectar()
 {
 	$servidor = "localhost";
@@ -10,6 +13,21 @@ function conectar()
 	return $con;
 }
 
-// $pdo = new PDO("mysql: host=localhost; dbname=sistemadistribuido", "root", "senac1988");
+$conexao = conectar();
+
+
+/* BANCO DE DADOS HOSPEDADO */
+/*
+function conectar()
+{
+	$servidor = "localhost";
+	$usuario = "id11295376_grazziano";
+	$senha = "senac1988";
+	$db = "id11295376_sistemadistribuido";
+
+	$con = new mysqli($servidor, $usuario, $senha, $db);
+	return $con;
+}
 
 $conexao = conectar();
+*/

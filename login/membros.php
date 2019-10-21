@@ -268,7 +268,11 @@ include '../includes/conexao.php';
                             <input type='file' value="<?php echo $res_1['imagem']; ?>" name="arquivo" />
                         </td>
                         <td>
-                            <img src="imagens/<?php echo $res_1['imagem']; ?>" width="100" alt="<?php echo $res_1['nome']; ?>">
+                            <?php if ($res_1['imagem']) { ?>
+                                <img src="imagens/<?php echo $res_1['imagem']; ?>" width="100" alt="<?php echo $res_1['nome']; ?>">
+                            <?php } else { ?>
+                                <img src="data:image/jpeg;base64,<?= base64_encode($binary) ?>" width="100">
+                            <?php } ?>
                         </td>
 
                     </tr>

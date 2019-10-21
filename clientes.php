@@ -32,6 +32,7 @@ include 'includes/conexao.php';
                     $telefone = $res_1['telefone'];
                     $status = $res_1['status'];
                     $imagem = $res_1['imagem'];
+                    $binary = $res_1['imagem_arquivo'];
 
                     ?>
 
@@ -50,7 +51,11 @@ include 'includes/conexao.php';
                         <h3><?php echo $status; ?></h3>
                     </td>
 
-                    <td><img src="login/imagens/<?php echo $imagem; ?>" width="50"></td>
+                    <?php if ($imagem) { ?>
+                        <td><img src="login/imagens/<?php echo $imagem; ?>" width="50"></td>
+                    <?php } else {  ?>
+                        <td><img src="data:image/jpeg;base64,<?= base64_encode($binary) ?>" width="50"></td>
+                    <?php } ?>
                 </tr>
 
             <?php } ?>
