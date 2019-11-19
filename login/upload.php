@@ -101,6 +101,11 @@
             if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final)) {
                 //Upload efetuado com sucesso, exibe a mensagem
 
+                $fileOpen = fopen($_UP['pasta'] . $nome_final, "rb");
+                $conteudo = fread($fileOpen, $_FILES['arquivo']['size']);
+                $conteudo = addslashes($conteudo);
+                fclose($fileOpen);
+
                 if (isset($id)) {
                     // echo "Existe id";
                     $query = mysqli_query($conexao, "UPDATE membros SET nome = '$nome', telefone = '$telefone', status = '$status', imagem = '$nome_final' WHERE codigo = '$id' ");
@@ -112,7 +117,7 @@
 					";
                 } else {
                     // echo "Não existe id";
-                    $query = mysqli_query($conexao, "INSERT INTO membros (nome, telefone, status, imagem) VALUES ('$nome', '$telefone', '$status', '$nome_final')");
+                    $query = mysqli_query($conexao, "INSERT INTO membros (nome, telefone, status, imagem_arquivo) VALUES ('$nome', '$telefone', '$status', '$conteudo')");
                     echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=membros.php'>
 						<script type=\"text/javascript\">

@@ -130,10 +130,10 @@ include '../includes/conexao.php';
                             <h3><?php echo $status; ?></h3>
                         </td>
 
-                        <?php if ($imagem) { ?>
-                            <td><img src="imagens/<?php echo $imagem; ?>" width="50"></td>
+                        <?php if ($binary) { ?>
+                            <td><img src="data:image/jpeg;base64,<?= base64_encode($binary) ?>" width="50"></td>                            
                         <?php } else {  ?>
-                            <td><img src="data:image/jpeg;base64,<?= base64_encode($binary) ?>" width="50"></td>
+                            <td><img src="imagens/<?php echo $imagem; ?>" width="50"></td>
                         <?php } ?>
 
 
@@ -265,13 +265,13 @@ include '../includes/conexao.php';
                     </tr>
                     <tr>
                         <td>
-                            <input type='file' value="<?php echo $res_1['imagem']; ?>" name="arquivo" />
+                            <input type='file' value="<?php $res_1['imagem_arquivo']; ?>" name="arquivo" />
                         </td>
                         <td>
-                            <?php if ($res_1['imagem']) { ?>
+                            <?php if ($res_1['imagem_arquivo']) { ?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($res_1['imagem_arquivo']) ?>" width="100">                                 
+                            <?php } else {  ?>
                                 <img src="imagens/<?php echo $res_1['imagem']; ?>" width="100" alt="<?php echo $res_1['nome']; ?>">
-                            <?php } else { ?>
-                                <img src="data:image/jpeg;base64,<?= base64_encode($binary) ?>" width="100">
                             <?php } ?>
                         </td>
 
